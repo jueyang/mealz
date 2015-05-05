@@ -48,7 +48,7 @@ mealz.Meal = function(diners, tipPercent){
 		tipSplit = tipSum / diners.length;
 
 	// print
-	console.log('the meal is $' + mealTotal)
+	console.log('the meal is $' + mealTotal);
 
 	for (i = 0; i < diners.length; i++){
 		console.log(diners[i].dinerName + ' owes $' + diners[i].total + ' plus $' + tipSplit + ' tip')
