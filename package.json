@@ -1,0 +1,16 @@
+{
+  "name": "mealz",
+  "version": "1.0.0",
+  "description": "A simple calculator to split dishes",
+  "main": "mealz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "meal",
+    "calculator",
+    "food"
+  ],
+  "author": "Jue Yang",
+  "license": "None"
+}
