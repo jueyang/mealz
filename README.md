@@ -19,9 +19,7 @@ mealz.Meal([diner1, diner2], 0.2)
 ## Potential Dev
 
 1. If the users are the waiters, the tip amount is likely to be a fixed choice, simliar to this:
-
-![](http://i.imgur.com/7AClwGs.jpg)
-
+  ![](http://cl.ly/image/2p1Y3h0l0N1v/Screen%20Shot%202015-05-05%20at%201.48.58%20PM.png)
 2. Print is rudimentary right now. Depending on the final forms, it can take different routes.
 
 ## Study notes
