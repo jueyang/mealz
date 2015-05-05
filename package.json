@@ -12,5 +12,8 @@
     "food"
   ],
   "author": "Jue Yang",
-  "license": "None"
+  "license": "None",
+  "devDependencies": {
+    "lodash": "^3.8.0"
+  }
 }
