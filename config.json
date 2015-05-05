@@ -1,0 +1,13 @@
+{
+	"menu": [
+		{"id":1,"item":"wine","price":11},
+		{"id":2,"item":"old fashion","price":12},
+		{"id":3,"item":"arugula salad","price":8},
+		{"id":4,"item":"onion soup","price":7},
+		{"id":5,"item":"seared salmon","price":21},
+		{"id":6,"item":"lamb shoulder","price":25},
+		{"id":7,"item":"lava cake","price":9},
+		{"id":8,"item":"coffee","price":3.5}
+	],
+	"taxRate": 0.08875
+}
