@@ -6,76 +6,46 @@
 //  + Split the bill fairly among the diners
 //    + Each diner should pay the tax on their own food
 //    + Each diner should pay an equal share of the tip
-//  Print out a total bill
-//  Print a breakdown for what each diner owes
+//  + Print out a total bill
+//  + Print a breakdown for what each diner owes
 
-var mealz = {};
+var config = require('./config.json');
 
-// the menu of a mean bistro
-mealz.menu = [
-	{id:001,item:'wine',price:11},
-	{id:002,item:'old fashion',price:12},
-	{id:003,item:'arugula salad',price:8},
-	{id:004,item:'onion soup',price:7},
-	{id:005,item:'seared salmon',price:21},
-	{id:006,item:'lamb shoulder',price:25},
-	{id:007,item:'lava cake',price:9},
-	{id:008,item:'coffee',price:3.5}
-];
+var menu = config.menu,
+	taxRate = config.taxRate;
 
-// NYC sales tax and normal tip breaks
-mealz.taxRate = 0.08875;
-mealz.tipOfChoice = 0; // TODO: get from input
+function sum(){
+	var sum = 0;
 
+	for (var i = 0; i < arguments.length; i++){
+		sum += arguments[i];
+	}
+
+	return sum
+}
 // a typical diner
-// if there is a splitted dish
-// the argument split number will be created
-var Diner = function(dishes, splitNumber){
-	this.dishes = dishes;
-	this.getConsumed = function(){
-		// looks like this
-		// consumed: [
-		// 	{item: 'wine',price:11},
-		// 	{item: 'arugula salad',price:8},
-		// 	{item: 'seared salmon', price: 21}
-		// ]
-		return consumed
-	};
+var Diner = function(name, dishes){
 
-	// calculate total cost before split
-	this.calcTotalCost = function(){
-		var cost = 0;
-		this.getConsumed().forEach(item){
-			cost += item.price;
-		}
+	var consumed = dishes.map(function(d){return d.price;}),
+		individualSum = sum(consumed),
+		tax = individualSum * taxRate;
 
-		if (splitNumber === undefined || splitNumber === 0){
-			return cost
-		} else {
-			return cost/splitNumber;
-		}
-	};
-
-	// splitted taken into consideration
-	this.calcTax = this.calcTotalCost() * mealz.taxRate;
+	this.dinerName = name;
+	this.total = individualSum + tax;
 };
 
-// Caroline orders some stuff
-// So does George
-var caroline = new Diner(['wine','arugula salad','seared salmon']);
-var george = new Diner(['old fashion','lamb shoulder','coffee']);
+// var meal = new Meal([caroline,george])
+var Meal = function(diners, tipPercent){
 
-// they share dessert
-// the dessert 
-var splitted = new Diner(['lava cake'],2);
+	var dinerTotals = diners.map(function(d){return d.total;}),
+		mealTotal = sum(dinerTotals),
+		tipSum = mealTotal * tipPercent,
+		tipSplit = this.tipSum / diners.length;
 
-var mealCost = caroline.calcTotalCost() + george.calcTotalCost(),
-	totalTip = mealCost * tipOfChoice;
+	// print
+	console.log('the meal is $' + mealTotal)
 
-var splitTip = totalTip/2;
-
-function printReceipt(){
-	// return each diner's calcTax
-	// mealCost
-	// and splitTIp
-}
+	for (i = 0; i < diners.length; i++){
+		console.log(diners[i].dinerName + ' owes $' + diners[i].total + ' plus $' + tipSplit + ' tip')
+	}
+};
