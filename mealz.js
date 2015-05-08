@@ -13,46 +13,12 @@
 */
 
 var _ = require('lodash');
-var mealz = {};
+var Diner = require('./models/Diner.js');
+var Meal = require('./models/Meal.js');
 
-config = require('./config.json');
-
-mealz.menu = config.menu,
-mealz.taxRate = config.taxRate;
-
-// a typical diner
-mealz.Diner = function(name, dishes){
-
-	var consumed = [];
-
-	_.each(dishes,function(d){
-		var matching = _.find(mealz.menu,{'item':d});
-		consumed.push(_.result(matching,'price'));
-	});
-
-	var individualSum = _.sum(consumed),
-		tax = individualSum * mealz.taxRate;
-
-	this.dinerName = name;
-	this.total = individualSum + tax;
-
-	console.log(individualSum, tax);
-};
-
-// var meal = new Meal([caroline,george])
-mealz.Meal = function(diners, tipPercent){
-
-	var dinerTotals = diners.map(function(d){return d.total;}),
-		mealTotal = _.sum(dinerTotals),
-		tipSum = mealTotal * tipPercent,
-		tipSplit = tipSum / diners.length;
-
-	// print
-	console.log('the meal is $' + mealTotal);
-
-	for (i = 0; i < diners.length; i++){
-		console.log(diners[i].dinerName + ' owes $' + diners[i].total + ' plus $' + tipSplit + ' tip')
-	}
-};	
+var mealz = {
+  Diner: Diner,
+  Meal: Meal,
+}
 
 module.exports = mealz;
