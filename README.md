@@ -24,4 +24,7 @@ mealz.Meal([diner1, diner2], 0.2)
 
 ## Study notes
 
-See [gist](https://gist.github.com/jueyang/8031edee619b8226a24d).
+1. See [gist](https://gist.github.com/jueyang/8031edee619b8226a24d).
+2. Debug tools!
+
+`npm install -g node-inspector`
