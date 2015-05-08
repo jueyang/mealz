@@ -13,6 +13,8 @@ function Meal(diners, tipPercent){
 	for (i = 0; i < diners.length; i++){
 		console.log(diners[i].dinerName + ' owes $' + diners[i].total + ' plus $' + tipSplit + ' tip')
 	}
+
+	return this
 };	
 
 module.exports = Meal;
