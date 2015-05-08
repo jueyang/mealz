@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var mealz = require('./mealz.js');
 
 var caroline = new mealz.Diner('Caroline',['wine','arugula salad','seared salmon']);

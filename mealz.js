@@ -12,7 +12,6 @@
   * Print a breakdown for what each diner owes
 */
 
-var _ = require('lodash');
 var Diner = require('./models/Diner.js');
 var Meal = require('./models/Meal.js');
 
